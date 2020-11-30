@@ -91,12 +91,12 @@ def train_Model(eta):
     Q = 5 * np.array([np.array([(-random.random() / math.sqrt(K1)) for j in range(K1)]) for i in range(N)])
     e = 10 ** 10
     # output a result without training
-    print 'iteration ', 0,
+    print('iteration ', 0,)
     [F1, NDCG] = test_Model(U, V)
     Fmax = 0
     if F1[0] > Fmax:
         Fmax = F1[0]
-    print Fmax, 'F1: ', F1, '  ', 'NDCG: ', NDCG
+    print(Fmax, 'F1: ', F1, '  ', 'NDCG: ', NDCG)
     # save in .xls file
     F1_df = pd.DataFrame(columns=top_k)
     NDCG_df = pd.DataFrame(columns=top_k)
@@ -110,7 +110,7 @@ def train_Model(eta):
     bs.append(Re)
     # begin iterating
     for ep in range(epoch):
-        print 'iteration ', ep + 1,
+        print('iteration ', ep + 1,)
         eta = eta * 0.99
         # for each iterating, we user all training samples to train
         for ii in range(len(bs) - 1):
@@ -160,7 +160,7 @@ def train_Model(eta):
                 Fmax = F1[0]
             F1_df.loc[ep + 1] = F1
             NDCG_df.loc[ep + 1] = NDCG
-            print 'F1: ', F1, '  ', 'NDCG: ', NDCG
+            print('F1: ', F1, '  ', 'NDCG: ', NDCG)
             save_df([[F1_df, 'F1'], [NDCG_df, 'NDCG']], path_excel, first_sheet=False)  # @x
         else:
             break
@@ -168,18 +168,17 @@ def train_Model(eta):
 
 def print_parameter():
     # print all parameters
-    print 'model:', Model
-    print 'dataset:', dataset_list[dataset]
-    print 'eta:', eta
-    print 'lambda_r:', lambda_r, 'lambda_phi:', lambda_phi
-    print 'K0:', K0, 'K1:', K1
-    print 'vali_test:', ['validation', 'test'][vali_test]
-    print 'sample_rate:', sample_rate
-    print 'batch_size:', batch_size
-    print 'epoch:', epoch
-    print 'top_k:', top_k
-    print
-
+    print('model:', Model)
+    print('dataset:', dataset_list[dataset])
+    print('eta:', eta)
+    print('lambda_r:', lambda_r, 'lambda_phi:', lambda_phi)
+    print('K0:', K0, 'K1:', K1)
+    print('vali_test:', ['validation', 'test'][vali_test])
+    print('sample_rate:', sample_rate)
+    print('batch_size:', batch_size)
+    print('epoch:', epoch)
+    print('top_k:', top_k)
+    print()
 '''**************************main_function***************************'''
 '''**************************main_function***************************'''
 # load the data
