@@ -100,7 +100,7 @@ def train_Model(eta):
     NDCG_df.loc[0] = NDCG
     save_df([[F1_df, 'F1'], [NDCG_df, 'NDCG']], path_excel, first_sheet=False)  # @x
 
-    # get the numer of training samples
+    # get the number of training samples
     Re = len(train_data)
     # split the training samples with batch_size
     bs = list(range(0, Re, batch_size))
